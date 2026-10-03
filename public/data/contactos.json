@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "email": "juan.perez@empresa.com",
+        "puesto": "CEO",
+        "foto": "https://i.ibb.co/8Lks2h2X/juan-perez.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Ana Gómez",
+        "email": "ana.gomez@empresa.com",
+        "puesto": "CTO",
+        "foto": "https://i.ibb.co/zTb3hg6v/ana-gomez.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Carlos Rodríguez",
+        "email": "carlos.rodriguez@empresa.com",
+        "puesto": "Desarrollador Java",
+        "foto": "https://i.ibb.co/p6pmh6qg/carlos-rodriguez.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Laura Martínez",
+        "email": "laura.martinez@empresa.com",
+        "puesto": "Diseñadora UX/UI",
+        "foto": "https://i.ibb.co/201s6t7F/laura-martinez.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Martín López",
+        "email": "martin.lopez@empresa.com",
+        "puesto": "Project Manager",
+        "foto": "https://i.ibb.co/SwNk3W2Y/martin-lopez.jpg"
+    }
+]

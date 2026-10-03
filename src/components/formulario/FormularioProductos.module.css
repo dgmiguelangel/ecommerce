@@ -1,0 +1,134 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: calc(100% - 2rem);
+    max-width: 30rem;
+    box-sizing: border-box;
+    margin: clamp(2rem, 6vw, 4rem) auto;
+    padding: clamp(1.25rem, 5vw, 2rem);
+    border: 1px solid #e5e1d5;
+    border-radius: 16px;
+    background-color: #fff;
+    color: #292929;
+    box-shadow: 0 8px 24px rgba(47, 38, 19, 0.1);
+}
+
+.form h3 {
+    margin: 0 0 0.25rem;
+    color: #292929;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.form label {
+    color: #3f3f3f;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.archivoInput {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.archivoBoton {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background-color: #f1ead3;
+    color: #4c3d16;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.archivoBoton:hover {
+    background-color: #e5d9ad;
+}
+
+.form input.archivoOculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    min-height: 0;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.archivoInput:focus-within .archivoBoton {
+    outline: 3px solid rgba(118, 95, 29, 0.35);
+    outline-offset: 2px;
+}
+
+.archivoNombre {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.form input {
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid #d4d0c5;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #292929;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input::placeholder {
+    color: #858585;
+}
+
+.form input:focus-visible {
+    border-color: #8b7028;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(184, 154, 63, 0.2);
+}
+
+.form button {
+    min-height: 46px;
+    margin-top: 0.25rem;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background-color: #765f1d;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+    background-color: #5e4b17;
+}
+
+.form button:active {
+    transform: translateY(1px);
+}
+
+.form button:focus-visible {
+    outline: 3px solid rgba(118, 95, 29, 0.35);
+    outline-offset: 2px;
+}

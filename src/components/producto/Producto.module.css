@@ -1,0 +1,180 @@
+.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    width: min(1100px, calc(100% - 32px));
+    margin: 32px auto;
+}
+
+.loadingMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(1100px, calc(100% - 32px));
+    min-height: 220px;
+    margin: 32px auto;
+    padding: 32px 20px;
+    box-sizing: border-box;
+    color: #176b2b;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.loadingMessage p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    margin: 0;
+    padding: 16px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.productCard h2,
+.productCard p {
+    text-align: left;
+}
+
+.description {
+    color: #9ca3af;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.details {
+    color: #000;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.favoriteButton {
+    position: absolute;
+    top: 0;
+    right: -44px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favoriteButton:hover {
+    transform: scale(1.08);
+}
+
+.favoriteButton:focus-visible {
+    outline: 2px solid #218739;
+    outline-offset: 4px;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+.inStock,
+.outOfStock {
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.inStock {
+    color: #218739;
+}
+
+.outOfStock {
+    color: #c62828;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.counter button {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 6px;
+    background: #218739;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.counter button:hover:not(:disabled) {
+    background: #176b2b;
+}
+
+.counter button:disabled {
+    background: #b8b8b8;
+    cursor: not-allowed;
+}
+
+.counter span {
+    min-width: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.addToCartButton {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px auto 0;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #218739;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.addToCartButton:hover:not(:disabled) {
+    background: #176b2b;
+}
+
+.addToCartButton:disabled {
+    background: #b8b8b8;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.productImage {
+    display: block;
+    width: 100px;
+    max-width: 100%;
+    height: 100px;
+    object-fit: contain;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}

@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "nombre": "Comida para Perros",
+        "descripcion": "Alimento balanceado para perros de todas las razas.",
+        "precio": 29.99,
+        "stock": 10,
+        "image": "https://i.ibb.co/3YP4wg53/alimento-perros.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Bebedero para Perros",
+        "descripcion": "Bebedero cómodo para perros de todas las razas.",
+        "precio": 19.99,
+        "stock": 5,
+        "image": "https://i.ibb.co/DD17MgP1/bebedero-perros.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Cama para Perros",
+        "descripcion": "Cama cómoda para perros de todas las razas.",
+        "precio": 39.99,
+        "stock": 0,
+        "image": "https://i.ibb.co/1gPWhMH/cama-perros.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Collar para Perros",
+        "descripcion": "Collar resistente y cómodo para perros.",
+        "precio": 12.99,
+        "stock": 15,
+        "image": "https://i.ibb.co/kZTj4pn/collar-perros.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Correa para Perros",
+        "descripcion": "Correa resistente para paseos seguros.",
+        "precio": 15.99,
+        "stock": 12,
+        "image": "https://i.ibb.co/WT5Nf9J/correa-perros.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Hueso Mordedor",
+        "descripcion": "Juguete mordedor para entretener y cuidar los dientes.",
+        "precio": 8.99,
+        "stock": 20,
+        "image": "https://i.ibb.co/4gPZHsv0/hueso-mordedor.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Juguete de Cuerda",
+        "descripcion": "Juguete de cuerda ideal para juegos interactivos.",
+        "precio": 7.99,
+        "stock": 18,
+        "image": "https://i.ibb.co/fzxwQnNv/juguete-cuerda.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Pelota para Perros",
+        "descripcion": "Pelota resistente para jugar y hacer ejercicio.",
+        "precio": 9.99,
+        "stock": 14,
+        "image": "https://i.ibb.co/G3CVGBXV/pelota-perros.png"
+    },
+    {
+        "id": 9,
+        "nombre": "Pretal para Perros",
+        "descripcion": "Pretal cómodo para paseos con mayor control.",
+        "precio": 22.99,
+        "stock": 8,
+        "image": "https://i.ibb.co/Sb5SgVs/pretal-perros.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Shampoo para Perros",
+        "descripcion": "Shampoo suave para mantener el pelaje limpio y saludable.",
+        "precio": 11.99,
+        "stock": 10,
+        "image": "https://i.ibb.co/9m1xFbhT/shampoo-perros.png"
+    },
+    {
+        "id": 11,
+        "nombre": "Snacks para Perros",
+        "descripcion": "Premios sabrosos para consentir a tu perro.",
+        "precio": 6.99,
+        "stock": 25,
+        "image": "https://i.ibb.co/jksqJhvX/snacks-perros.png"
+    }
+]
