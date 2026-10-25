@@ -17,6 +17,7 @@ export function useGetProductos() {
                 }
                 const datos = await respuesta.json();
                 setProductos(datos);
+
             } catch (errorDeCarga) {
                 setError(errorDeCarga);
             } finally {

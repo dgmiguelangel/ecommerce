@@ -8,31 +8,43 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
             <div>
                 <label>Nombre del Producto:</label>
                 <input
+                    id="nombre"
                     type="text"
                     placeholder="Ej: Teclado Mecánico"
                     name="nombre"
                     value={datosForm.nombre || ''}
                     onChange={manejarCambio}
+                    required
+                    pattern=".*\S.*"
+                    title="Ingresa un nombre que contenga al menos un carácter distinto de espacio."
                 />
             </div>
             <div>
                 <label>Precio: $</label>
                 <input
+                    id="precio"
                     type="number"
                     placeholder="Ej: 95"
                     name="precio"
                     value={datosForm.precio || ''}
                     onChange={manejarCambio}
+                    required
+                    min="0.01"
+                    step="any"
                 />
             </div>
             <div>
                 <label>Stock:</label>
                 <input
+                    id="stock"
                     type="number"
                     placeholder="Ej: 5"
                     name="stock"
                     value={datosForm.stock || ''}
                     onChange={manejarCambio}
+                    required
+                    min="0"
+                    step="1"
                 />
             </div>
             <div>
@@ -48,6 +60,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                         type="file"
                         accept="image/*"
                         name="imagen"
+                        required
                         onChange={manejarCambioImagen}
                     />
                     <span className={styles.archivoNombre}>

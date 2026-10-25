@@ -154,6 +154,8 @@
     font: inherit;
     font-weight: 700;
     white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s ease, opacity 0.2s ease;
 }
@@ -168,6 +170,22 @@
     opacity: 0.8;
 }
 
+.viewDetailsLink {
+    display: block;
+    width: fit-content;
+    margin: 8px 0 0;
+    color: #176b9b;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.viewDetailsLink:hover {
+    color: #125579;
+}
+
 .productImage {
     display: block;
     width: 100px;
@@ -177,4 +195,10 @@
     border: 0;
     outline: 0;
     box-shadow: none;
+}
+
+.productName {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
 }

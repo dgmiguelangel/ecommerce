@@ -1,22 +1,40 @@
 import { useState } from 'react';
 
-export function useProductoItemFunctions(nombre, stock) {
+export function useProductoItemFunctions(nombre, stock, id) {
 
-    const [contador, setContador] = useState(0);
-    const [esFavorito, setEsFavorito] = useState(false);
+    const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
+    const counterStorageKey = `ecommerce:producto:${id}:contador`;
+
+    const [contador, setContador] = useState(() => {
+        const contadorGuardado = Number(localStorage.getItem(counterStorageKey));
+        return Number.isInteger(contadorGuardado)
+            ? Math.min(Math.max(contadorGuardado, 0), stock)
+            : 0;
+    });
+
+    const [esFavorito, setEsFavorito] = useState(() =>
+        localStorage.getItem(favoriteStorageKey) === 'true');
 
     const marcarComoFavorito = () => {
-        setEsFavorito((favoritoActual) => !favoritoActual);
+        const nuevoEstado = !esFavorito;
+        localStorage.setItem(favoriteStorageKey, String(nuevoEstado));
+        setEsFavorito(nuevoEstado);
     };
 
     const incrementar = () => {
-        setContador((contadorActual) =>
-            contadorActual < stock ? contadorActual + 1 : contadorActual
-        );
+        if (contador >= stock) return;
+
+        const nuevoContador = contador + 1;
+        localStorage.setItem(counterStorageKey, String(nuevoContador));
+        setContador(nuevoContador);
     };
 
     const decrementar = () => {
-        setContador((contadorActual) => Math.max(0, contadorActual - 1));
+        if (contador <= 0) return;
+
+        const nuevoContador = contador - 1;
+        localStorage.setItem(counterStorageKey, String(nuevoContador));
+        setContador(nuevoContador);
     };
 
     const agregarAlCarrito = () => {

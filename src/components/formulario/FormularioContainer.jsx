@@ -33,6 +33,11 @@ export function FormularioContainer() {
             return;
         }
 
+        if (!imagenFile.type.startsWith('image/')) {
+            alert("El archivo seleccionado debe ser una imagen.");
+            return;
+        }
+
         const apiKey = import.meta.env.VITE_API_KEY;
         const formData = new FormData();
         formData.append('image', imagenFile);
