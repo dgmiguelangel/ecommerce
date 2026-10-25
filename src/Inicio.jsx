@@ -70,8 +70,7 @@ function Inicio() {
                 </div>
                 <div className={styles.categoryGrid}>
                     {categorias.map((categoria) => (
-                        <Link
-                            to="/productos"
+                        <article
                             className={`${styles.categoryCard} ${styles[categoria.color]}`}
                             key={categoria.nombre}
                         >
@@ -82,8 +81,7 @@ function Inicio() {
                                 <h3>{categoria.nombre}</h3>
                                 <p>{categoria.detalle}</p>
                             </div>
-                            <span className={styles.categoryArrow} aria-hidden="true">↗</span>
-                        </Link>
+                        </article>
                     ))}
                 </div>
             </section>

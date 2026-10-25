@@ -93,8 +93,7 @@
 }
 
 .bannerButton:focus-visible,
-.textLink:focus-visible,
-.categoryCard:focus-visible {
+.textLink:focus-visible {
     outline: 3px solid #e27c54;
     outline-offset: 4px;
 }
@@ -311,13 +310,6 @@
     overflow: hidden;
     border-radius: 20px;
     color: inherit;
-    text-decoration: none;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.categoryCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(54, 65, 49, 0.1);
 }
 
 .lavender {
@@ -350,10 +342,6 @@
     transition: transform 180ms ease;
 }
 
-.categoryCard:hover .categoryImage img {
-    transform: scale(1.08) rotate(-3deg);
-}
-
 .categoryCopy h3 {
     margin: 0 0 5px;
     color: #34483a;
@@ -366,14 +354,6 @@
     color: #778276;
     font-size: 0.7rem;
     text-align: left;
-}
-
-.categoryArrow {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    color: #74856f;
-    font-size: 1rem;
 }
 
 .closingBanner {
@@ -541,7 +521,6 @@
 
 @media (prefers-reduced-motion: reduce) {
     .bannerButton,
-    .categoryCard,
     .categoryImage img {
         transition: none;
     }
