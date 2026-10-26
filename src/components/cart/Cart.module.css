@@ -97,7 +97,6 @@
 }
 
 .clearButton {
-    grid-column: 1 / -1;
     justify-self: end;
     margin-top: 8px;
     padding: 10px 16px;
@@ -118,6 +117,25 @@
 
 .clearButton:focus-visible {
     outline: 3px solid rgba(198, 40, 40, 0.35);
+    outline-offset: 3px;
+}
+
+.continueShopping {
+    align-self: center;
+    justify-self: start;
+    border-color: #218739;
+    color: #218739;
+    text-decoration: none;
+}
+
+.continueShopping:hover {
+    border-color: #218739;
+    background: #218739;
+    color: #fff;
+}
+
+.continueShopping:focus-visible {
+    outline: 3px solid rgba(33, 135, 57, 0.35);
     outline-offset: 3px;
 }
 
@@ -148,6 +166,10 @@
 .emptyCart p {
     margin: 0;
     color: #6b6251;
+}
+
+.emptyCart .continueShopping {
+    margin-top: 18px;
 }
 
 @media (max-width: 560px) {

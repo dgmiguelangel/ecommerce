@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import DetalleProducto from './components/producto/DetalleProducto';
 import ContactoListContainer from './components/equipo/ContactoListContainer';
 import styles from './App.module.css';
-import Inicio from './Inicio';
+import Inicio from './components/inicio/Inicio';
 
 const guaushop = '/images/logos/logo_guaushop.png';
 

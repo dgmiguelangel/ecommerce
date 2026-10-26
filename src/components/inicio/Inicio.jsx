@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Inicio.module.css';
-import { useGetCategorias } from './components/producto/useGetCategorias';
+import { useGetCategorias } from '../producto/useGetCategorias';
 
 function Inicio() {
 

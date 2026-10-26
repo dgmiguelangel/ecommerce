@@ -44,7 +44,6 @@ export function useProductoItemFunctions(nombre, precio, stock, id) {
 
     const agregarAlCarrito = () => {
         addToCart({ ...producto, quantity: contador });
-        alert(`Agregaste ${contador} unidades de ${nombre} al carrito`);
     };
 
     return {

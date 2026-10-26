@@ -1,4 +1,5 @@
 import { useCart } from '../../context/CartContext.jsx';
+import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 
 const Cart = () => {
@@ -13,6 +14,9 @@ const Cart = () => {
                 </span>
                 <h1>El carrito está vacío</h1>
                 <p>Agrega productos para continuar la compra.</p>
+                <Link to="/productos" className={`${styles.clearButton} ${styles.continueShopping}`}>
+                    Continuar comprando
+                </Link>
             </main>
         );
     }
@@ -37,6 +41,9 @@ const Cart = () => {
             <section className={styles.cartSummary} aria-label="Resumen del carrito">
                 <h2>Total a pagar</h2>
                 <p className={styles.total}>${getCartTotal().toFixed(2)}</p>
+                <Link to="/productos" className={`${styles.clearButton} ${styles.continueShopping}`}>
+                    Continuar comprando
+                </Link>
                 <button className={styles.clearButton} onClick={clearCart}>Vaciar carrito</button>
             </section>
         </main>
