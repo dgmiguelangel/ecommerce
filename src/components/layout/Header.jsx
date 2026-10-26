@@ -1,10 +1,19 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext.jsx';
 
 function Header({ image }) {
+
+    const { getCartQuantity } = useCart();
+    const totalItems = getCartQuantity();
+
     return (
         <header className={styles.header}>
-            {image && <img className={styles.logo} src={image} alt="Logo de la tienda" />}
+            {image && (
+                <Link to="/" aria-label="Inicio">
+                    <img className={styles.logo} src={image} alt="Logo de la tienda" />
+                </Link>
+            )}
 
             <nav aria-label="Navegación principal">
                 <ul className={styles.navList}>
@@ -29,8 +38,9 @@ function Header({ image }) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className={styles.cartLink} aria-label="Carrito">
+                        <Link to="/carrito" className={styles.cartLink} aria-label="Carrito">
                             <img className={styles.cartIcon} src="/images/carrito/carrito-de-compras.png" alt="Carrito" />
+                            {totalItems > 0 && <span className={styles.cartQuantity}>{totalItems}</span>}
                         </Link>
                     </li>
                 </ul>

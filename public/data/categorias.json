@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Alimentación",
+        "detalle": "Para que crezca feliz y saludable",
+        "imagen": "/images/productos/alimento_perros.png",
+        "color": "lavender"
+    },
+    {
+        "nombre": "Juguetes",
+        "detalle": "Diversión para todos los días",
+        "imagen": "/images/productos/juguete_cuerda.png",
+        "color": "peach"
+    },
+    {
+        "nombre": "Paseo",
+        "detalle": "Aventuras con correa y pretal",
+        "imagen": "/images/productos/correa_perros.png",
+        "color": "mint"
+    },
+    {
+        "nombre": "Descanso",
+        "detalle": "Su rincón favorito para soñar",
+        "imagen": "/images/productos/cama_perros.png",
+        "color": "yellow"
+    }
+]

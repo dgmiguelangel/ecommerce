@@ -1,34 +1,23 @@
 import { Link } from 'react-router-dom';
 import styles from './Inicio.module.css';
-
-const categorias = [
-    {
-        nombre: 'Alimentación',
-        detalle: 'Para que crezca feliz y saludable',
-        imagen: '/images/productos/alimento_perros.png',
-        color: 'lavender',
-    },
-    {
-        nombre: 'Juguetes',
-        detalle: 'Diversión para todos los días',
-        imagen: '/images/productos/juguete_cuerda.png',
-        color: 'peach',
-    },
-    {
-        nombre: 'Paseo',
-        detalle: 'Aventuras con correa y pretal',
-        imagen: '/images/productos/correa_perros.png',
-        color: 'mint',
-    },
-    {
-        nombre: 'Descanso',
-        detalle: 'Su rincón favorito para soñar',
-        imagen: '/images/productos/cama_perros.png',
-        color: 'yellow',
-    },
-];
+import { useGetCategorias } from './components/producto/useGetCategorias';
 
 function Inicio() {
+
+    const { categorias, cargando, error } = useGetCategorias();
+
+    if (cargando) {
+        return (
+            <div className={styles.loadingMessage} role="status" aria-live="polite">
+                <p>Cargando categorías...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <p>Error al cargar las categorías.</p>;
+    }
+
     return (
         <div className={styles.home}>
             <section className={styles.hero}>

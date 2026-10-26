@@ -1,4 +1,5 @@
 import './App.css';
+import Cart from './components/cart/Cart';
 import ProductoListContainer from './components/producto/productoListContainer';
 import { Layout } from './components/layout/Layout';
 import { FormularioContainer } from './components/formulario/FormularioContainer';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/alta-productos" element={<FormularioContainer />} />
         <Route path="/nosotros" element={<ContactoListContainer message="Nosotros" />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
+        <Route path="/carrito" element={<Cart />} />
         <Route path="*" element={<h1 className={styles.notFound}>Página no encontrada</h1>} />
       </Route>
     </Routes>

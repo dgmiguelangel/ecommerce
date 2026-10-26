@@ -62,7 +62,7 @@
     font-style: italic;
 }
 
-.heroCopy > p {
+.heroCopy>p {
     max-width: 420px;
     margin: 0;
     color: #68766c;
@@ -371,7 +371,7 @@
     font-size: 2.1rem;
 }
 
-.closingBanner > div {
+.closingBanner>div {
     flex: 1;
 }
 
@@ -423,7 +423,7 @@
         font-size: clamp(2.55rem, 12vw, 3.5rem);
     }
 
-    .heroCopy > p {
+    .heroCopy>p {
         font-size: 0.92rem;
     }
 
@@ -510,7 +510,7 @@
         font-size: 1.6rem;
     }
 
-    .closingBanner > div {
+    .closingBanner>div {
         flex-basis: calc(100% - 50px);
     }
 
@@ -520,8 +520,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .bannerButton,
     .categoryImage img {
         transition: none;
     }
+}
+
+.loadingMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(1100px, calc(100% - 32px));
+    min-height: 220px;
+    margin: 32px auto;
+    padding: 32px 20px;
+    box-sizing: border-box;
+    color: #176b2b;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.loadingMessage p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
 }

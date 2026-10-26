@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useCart } from '../../context/CartContext.jsx';
 
-export function useProductoItemFunctions(nombre, stock, id) {
+export function useProductoItemFunctions(nombre, precio, stock, id) {
+
+    const producto = { id, nombre, precio, stock };
 
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const counterStorageKey = `ecommerce:producto:${id}:contador`;
@@ -37,8 +40,11 @@ export function useProductoItemFunctions(nombre, stock, id) {
         setContador(nuevoContador);
     };
 
+    const { addToCart } = useCart();
+
     const agregarAlCarrito = () => {
-        alert(`Agregaste ${nombre} al carrito`);
+        addToCart({ ...producto, quantity: contador });
+        alert(`Agregaste ${contador} unidades de ${nombre} al carrito`);
     };
 
     return {
