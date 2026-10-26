@@ -11,7 +11,7 @@ function TarjetaProducto(props) {
         incrementar,
         decrementar,
         agregarAlCarrito
-    } = useProductoItemFunctions(props.nombre, props.precio, props.stock, props.id);
+    } = useProductoItemFunctions(props.nombre, props.precio, props.stock, props.id, props.image);
 
     return (
         <article className={styles.productCard}>

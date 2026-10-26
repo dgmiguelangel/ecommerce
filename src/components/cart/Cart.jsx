@@ -27,6 +27,9 @@ const Cart = () => {
             <div className={styles.cartItems}>
                 {cart.map((item, index) => (
                     <article key={index} className={styles.cartItem}>
+                        {item.image && (
+                            <img className={styles.itemImage} src={item.image} alt={item.nombre} />
+                        )}
                         <div className={styles.itemDetails}>
                             <h2 className={styles.itemName}>{item.nombre}</h2>
                             <p className={styles.quantity}>Cantidad: {item.quantity}</p>

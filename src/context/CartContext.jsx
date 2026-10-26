@@ -1,7 +1,11 @@
 import React, { useState, useContext, createContext } from 'react';
 
+// CONTEXTO: canal compartido por el que viajan el carrito y sus funciones
+// a cualquier componente de la app, sin pasar props nivel por nivel.
 export const CartContext = createContext();
 
+// CONSUMER: hook que lee el contexto. Lo usan los componentes (Header, Cart,
+// tarjetas de producto) para acceder al carrito.
 export const useCart = () => {
     const context = useContext(CartContext);
     if (!context) {
@@ -10,8 +14,11 @@ export const useCart = () => {
     return context;
 };
 
+// PROVIDER: componente que guarda el estado del carrito y lo publica en el
+// contexto. Debe envolver a los componentes que lo consumen (ver main.jsx).
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    // Señal que cambia en cada vaciado para que las tarjetas reinicien su contador.
     const [resetVersion, setResetVersion] = useState(0);
 
     const addToCart = (product) => {
@@ -45,6 +52,7 @@ export const CartProvider = ({ children }) => {
         return cart.reduce((total, item) => total + Number(item.precio) * item.quantity, 0);
     };
 
+    // Todo lo que esté en "value" queda disponible para los consumers.
     return (
         <CartContext.Provider value={{ cart, addToCart, clearCart, getCartQuantity, getCartTotal, resetVersion }}>
             {children}

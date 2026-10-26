@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useCart } from '../../context/CartContext.jsx';
 
-export function useProductoItemFunctions(nombre, precio, stock, id) {
+export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
-    const producto = { id, nombre, precio, stock };
+    const producto = { id, nombre, precio, stock, image };
 
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const counterStorageKey = `ecommerce:producto:${id}:contador`;
