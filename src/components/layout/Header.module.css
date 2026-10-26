@@ -54,12 +54,31 @@
 }
 
 .cartLink {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: 36px;
     min-height: 36px;
     padding: 2px;
+}
+
+.cartQuantity {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    display: grid;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 999px;
+    background: #c62828;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
 }
 
 .cartIcon {

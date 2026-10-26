@@ -40,7 +40,13 @@ export function useProductoItemFunctions(nombre, precio, stock, id) {
         setContador(nuevoContador);
     };
 
-    const { addToCart } = useCart();
+    const { addToCart, resetVersion } = useCart();
+
+    const [versionVista, setVersionVista] = useState(resetVersion);
+    if (versionVista !== resetVersion) {
+        setVersionVista(resetVersion);
+        setContador(0);
+    }
 
     const agregarAlCarrito = () => {
         addToCart({ ...producto, quantity: contador });

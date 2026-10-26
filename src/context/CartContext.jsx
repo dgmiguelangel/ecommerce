@@ -12,21 +12,29 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    const [resetVersion, setResetVersion] = useState(0);
 
     const addToCart = (product) => {
-        const itemInCart = cart.find((item) => item.id === product.id);
-        if (itemInCart) {
-            const updatedCart = cart.map((item) =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-            );
-            setCart(updatedCart);
-        } else {
-            setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
-        }
+        const quantityToAdd = Number(product.quantity) || 0;
+        if (quantityToAdd <= 0) return;
+
+        setCart((prevCart) => {
+            const itemInCart = prevCart.find((item) => item.id === product.id);
+            if (itemInCart) {
+                return prevCart.map((item) =>
+                    item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item
+                );
+            }
+            return [...prevCart, { ...product, quantity: quantityToAdd }];
+        });
     };
 
     const clearCart = () => {
         setCart([]);
+        Object.keys(localStorage)
+            .filter((key) => key.startsWith('ecommerce:producto:') && key.endsWith(':contador'))
+            .forEach((key) => localStorage.removeItem(key));
+        setResetVersion((version) => version + 1);
     };
 
     const getCartQuantity = () => {
@@ -38,7 +46,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart, getCartQuantity, getCartTotal }}>
+        <CartContext.Provider value={{ cart, addToCart, clearCart, getCartQuantity, getCartTotal, resetVersion }}>
             {children}
         </CartContext.Provider>
     );

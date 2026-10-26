@@ -40,7 +40,7 @@ function Header({ image }) {
                     <li>
                         <Link to="/carrito" className={styles.cartLink} aria-label="Carrito">
                             <img className={styles.cartIcon} src="/images/carrito/carrito-de-compras.png" alt="Carrito" />
-                            {totalItems > 0 && <span className={styles.cartQuantity}>{totalItems}</span>}
+                            <span className={styles.cartQuantity}>{totalItems}</span>
                         </Link>
                     </li>
                 </ul>
