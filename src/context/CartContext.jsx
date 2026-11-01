@@ -36,7 +36,6 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-
     const clearCart = () => {
         setCart([]);
         setResetVersion((version) => version + 1);

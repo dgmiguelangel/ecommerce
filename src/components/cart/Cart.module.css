@@ -151,6 +151,25 @@
     outline-offset: 3px;
 }
 
+.checkoutButton {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    border-color: #218739;
+    background: #218739;
+    color: #fff;
+}
+
+.checkoutButton:hover {
+    border-color: #1a6b2e;
+    background: #1a6b2e;
+    color: #fff;
+}
+
+.checkoutButton:focus-visible {
+    outline: 3px solid rgba(33, 135, 57, 0.35);
+    outline-offset: 3px;
+}
+
 .emptyCart {
     display: flex;
     min-height: 300px;

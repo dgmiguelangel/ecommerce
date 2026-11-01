@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useCart } from '../../context/CartContext.jsx';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
@@ -5,6 +6,24 @@ import styles from './Cart.module.css';
 const Cart = () => {
 
     const { cart, clearCart, getCartTotal } = useCart();
+    const [compraFinalizada, setCompraFinalizada] = useState(false);
+
+    const finalizarCompra = () => {
+        clearCart();
+        setCompraFinalizada(true);
+    };
+
+    if (compraFinalizada) {
+        return (
+            <main className={styles.emptyCart}>
+                <h1>¡Gracias por tu compra!</h1>
+                <p>Tu pedido fue confirmado correctamente.</p>
+                <Link to="/productos" className={`${styles.clearButton} ${styles.continueShopping}`}>
+                    Continuar comprando
+                </Link>
+            </main>
+        );
+    }
 
     if (cart.length === 0) {
         return (
@@ -48,6 +67,9 @@ const Cart = () => {
                     Continuar comprando
                 </Link>
                 <button className={styles.clearButton} onClick={clearCart}>Vaciar carrito</button>
+                <button className={`${styles.clearButton} ${styles.checkoutButton}`} onClick={finalizarCompra}>
+                    Finalizar compra
+                </button>
             </section>
         </main>
     );

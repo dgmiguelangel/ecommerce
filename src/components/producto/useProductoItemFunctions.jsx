@@ -5,19 +5,18 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
 
-    const { addToCart, resetVersion, getCantidadActual } = useCart();
+    const { addToCart, getCantidadActual, resetVersion } = useCart();
 
     const cantidadActual = getCantidadActual(id);
 
-    const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
+    const [contador, setContador] = useState(() => Math.min(cantidadActual, stock));
 
+    const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const [versionVista, setVersionVista] = useState(resetVersion);
 
-    const [contador, setContador] = useState(() => Math.min(cantidadActual, stock));
 
     const [esFavorito, setEsFavorito] = useState(() =>
         localStorage.getItem(favoriteStorageKey) === 'true');
-
 
     const marcarComoFavorito = () => {
         const nuevoEstado = !esFavorito;
