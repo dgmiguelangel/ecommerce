@@ -5,22 +5,18 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
 
-    const { addToCart, resetVersion } = useCart();
+    const { updateQuantity, resetVersion, getCantidadActual } = useCart();
+
+    const cantidadActual = getCantidadActual(id);
 
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
-    const counterStorageKey = `ecommerce:producto:${id}:contador`;
+
+    const [versionVista, setVersionVista] = useState(resetVersion);
+
+    const [contador, setContador] = useState(() => Math.min(cantidadActual, stock));
 
     const [esFavorito, setEsFavorito] = useState(() =>
         localStorage.getItem(favoriteStorageKey) === 'true');
-
-    const [contador, setContador] = useState(() => {
-        const contadorGuardado = Number(localStorage.getItem(counterStorageKey));
-        return Number.isInteger(contadorGuardado)
-            ? Math.min(Math.max(contadorGuardado, 0), stock)
-            : 0;
-    });
-
-    const [versionVista, setVersionVista] = useState(resetVersion);
 
 
     const marcarComoFavorito = () => {
@@ -32,17 +28,13 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
     const incrementar = () => {
         if (contador >= stock) return;
 
-        const nuevoContador = contador + 1;
-        localStorage.setItem(counterStorageKey, String(nuevoContador));
-        setContador(nuevoContador);
+        setContador(contador + 1);
     };
 
     const decrementar = () => {
         if (contador <= 0) return;
 
-        const nuevoContador = contador - 1;
-        localStorage.setItem(counterStorageKey, String(nuevoContador));
-        setContador(nuevoContador);
+        setContador(contador - 1);
     };
 
     if (versionVista !== resetVersion) {
@@ -51,7 +43,7 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
     }
 
     const agregarAlCarrito = () => {
-        addToCart({ ...producto, quantity: contador });
+        updateQuantity(producto, contador);
     };
 
     return {

@@ -18,7 +18,7 @@ export const useCart = () => {
 // contexto. Debe envolver a los componentes que lo consumen (ver main.jsx).
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-    // Señal que cambia en cada vaciado para que las tarjetas reinicien su contador.
+    // Señal que cambia en cada vaciado del carrito.
     const [resetVersion, setResetVersion] = useState(0);
 
     const addToCart = (product) => {
@@ -36,11 +36,25 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+    const updateQuantity = (product, quantity) => {
+        const newQuantity = Number(quantity) || 0;
+        if (newQuantity <= 0) {
+            setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+            return;
+        }
+        setCart((prevCart) => {
+            const itemInCart = prevCart.find((item) => item.id === product.id);
+            if (itemInCart) {
+                return prevCart.map((item) =>
+                    item.id === product.id ? { ...item, quantity: newQuantity } : item
+                );
+            }
+            return [...prevCart, { ...product, quantity: newQuantity }];
+        });
+    };
+
     const clearCart = () => {
         setCart([]);
-        Object.keys(localStorage)
-            .filter((key) => key.startsWith('ecommerce:producto:') && key.endsWith(':contador'))
-            .forEach((key) => localStorage.removeItem(key));
         setResetVersion((version) => version + 1);
     };
 
@@ -59,7 +73,7 @@ export const CartProvider = ({ children }) => {
 
     // Todo lo que esté en "value" queda disponible para los consumers.
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
+        <CartContext.Provider value={{ cart, addToCart, updateQuantity, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
             {children}
         </CartContext.Provider>
     );
