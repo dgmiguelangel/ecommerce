@@ -82,6 +82,30 @@
     border-top: 1px solid #eee7d5;
 }
 
+.removeButton {
+    flex-shrink: 0;
+    align-self: center;
+    padding: 8px 14px;
+    border: 1px solid #c62828;
+    border-radius: 7px;
+    background: transparent;
+    color: #b42323;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.removeButton:hover {
+    background: #c62828;
+    color: #fff;
+}
+
+.removeButton:focus-visible {
+    outline: 3px solid rgba(198, 40, 40, 0.35);
+    outline-offset: 3px;
+}
+
 .cartSummary {
     display: grid;
     grid-template-columns: 1fr auto;

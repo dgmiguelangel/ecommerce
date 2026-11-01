@@ -5,7 +5,7 @@ import styles from './Cart.module.css';
 
 const Cart = () => {
 
-    const { cart, clearCart, getCartTotal } = useCart();
+    const { cart, removeItem, clearCart, getCartTotal } = useCart();
     const [compraFinalizada, setCompraFinalizada] = useState(false);
 
     const finalizarCompra = () => {
@@ -57,6 +57,13 @@ const Cart = () => {
                             <p>Precio unitario <span>${Number(item.precio).toFixed(2)}</span></p>
                             <p className={styles.subtotal}>Subtotal <span>${(item.quantity * Number(item.precio)).toFixed(2)}</span></p>
                         </div>
+                        <button
+                            className={styles.removeButton}
+                            onClick={() => removeItem(item.id)}
+                            aria-label={`Eliminar ${item.nombre} del carrito`}
+                        >
+                            Eliminar
+                        </button>
                     </article>
                 ))}
             </div>

@@ -36,6 +36,14 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+    const removeItem = (productId) => {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    };
+
+    const isInCart = (productId) => {
+        return cart.some((item) => item.id === productId);
+    };
+
     const clearCart = () => {
         setCart([]);
         setResetVersion((version) => version + 1);
@@ -56,7 +64,7 @@ export const CartProvider = ({ children }) => {
 
     // Todo lo que esté en "value" queda disponible para los consumers.
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
+        <CartContext.Provider value={{ cart, addToCart, removeItem, isInCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
             {children}
         </CartContext.Provider>
     );
