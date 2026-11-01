@@ -5,7 +5,7 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
 
-    const { updateQuantity, resetVersion, getCantidadActual } = useCart();
+    const { addToCart, resetVersion, getCantidadActual } = useCart();
 
     const cantidadActual = getCantidadActual(id);
 
@@ -43,7 +43,7 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
     }
 
     const agregarAlCarrito = () => {
-        updateQuantity(producto, contador);
+        addToCart({ ...producto, quantity: contador });
     };
 
     return {
