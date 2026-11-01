@@ -5,8 +5,13 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
 
+    const { addToCart, resetVersion } = useCart();
+
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const counterStorageKey = `ecommerce:producto:${id}:contador`;
+
+    const [esFavorito, setEsFavorito] = useState(() =>
+        localStorage.getItem(favoriteStorageKey) === 'true');
 
     const [contador, setContador] = useState(() => {
         const contadorGuardado = Number(localStorage.getItem(counterStorageKey));
@@ -15,8 +20,8 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
             : 0;
     });
 
-    const [esFavorito, setEsFavorito] = useState(() =>
-        localStorage.getItem(favoriteStorageKey) === 'true');
+    const [versionVista, setVersionVista] = useState(resetVersion);
+
 
     const marcarComoFavorito = () => {
         const nuevoEstado = !esFavorito;
@@ -40,9 +45,6 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
         setContador(nuevoContador);
     };
 
-    const { addToCart, resetVersion } = useCart();
-
-    const [versionVista, setVersionVista] = useState(resetVersion);
     if (versionVista !== resetVersion) {
         setVersionVista(resetVersion);
         setContador(0);
