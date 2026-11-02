@@ -10,7 +10,8 @@ function TarjetaProducto(props) {
         marcarComoFavorito,
         incrementar,
         decrementar,
-        agregarAlCarrito
+        agregarAlCarrito,
+        mensaje
     } = useProductoItemFunctions(props.nombre, props.precio, props.stock, props.id, props.image);
 
     return (
@@ -47,6 +48,9 @@ function TarjetaProducto(props) {
             <button onClick={agregarAlCarrito} className={styles.addToCartButton} disabled={props.stock === 0}>
                 Agregar al Carrito
             </button>
+            {mensaje && (
+                <p className={styles.addedMessage} role="status">{mensaje}</p>
+            )}
         </article>
     );
 

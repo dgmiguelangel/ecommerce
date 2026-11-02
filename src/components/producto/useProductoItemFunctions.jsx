@@ -5,7 +5,7 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
 
-    const { addToCart, getCantidadActual, resetVersion } = useCart();
+    const { updateQuantity, getCantidadActual, resetVersion } = useCart();
 
     const cantidadActual = getCantidadActual(id);
 
@@ -41,8 +41,11 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
         setContador(0);
     }
 
+    const [mensaje, setMensaje] = useState('');
+
     const agregarAlCarrito = () => {
-        addToCart({ ...producto, quantity: contador });
+        updateQuantity(producto, contador);
+        setMensaje(`Agregaste ${contador} producto${contador === 1 ? '' : 's'}`);
     };
 
     return {
@@ -51,6 +54,7 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
         marcarComoFavorito,
         incrementar,
         decrementar,
-        agregarAlCarrito
+        agregarAlCarrito,
+        mensaje
     };
 }

@@ -170,6 +170,50 @@
     opacity: 0.8;
 }
 
+.addedMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 10px 0 0;
+    padding: 8px 14px;
+    border: 1px solid #bfe3c7;
+    border-radius: 999px;
+    background: #eaf7ee;
+    color: #176b2b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(33, 135, 57, 0.12);
+    animation: addedMessageIn 0.25s ease-out;
+}
+
+.addedMessage::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #218739;
+    color: #fff;
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+@keyframes addedMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .viewDetailsLink {
     display: block;
     width: fit-content;
