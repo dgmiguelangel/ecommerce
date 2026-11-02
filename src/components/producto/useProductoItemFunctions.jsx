@@ -11,6 +11,8 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const [contador, setContador] = useState(() => Math.min(cantidadActual, stock));
 
+    const [mensaje, setMensaje] = useState('');
+
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const [versionVista, setVersionVista] = useState(resetVersion);
 
@@ -40,8 +42,6 @@ export function useProductoItemFunctions(nombre, precio, stock, id, image) {
         setVersionVista(resetVersion);
         setContador(0);
     }
-
-    const [mensaje, setMensaje] = useState('');
 
     const agregarAlCarrito = () => {
         updateQuantity(producto, contador);

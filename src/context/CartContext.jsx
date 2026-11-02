@@ -21,25 +21,6 @@ export const CartProvider = ({ children }) => {
     // Señal que cambia en cada vaciado del carrito.
     const [resetVersion, setResetVersion] = useState(0);
 
-    const addToCart = (product) => {
-        const quantityToAdd = Number(product.quantity) || 0;
-        if (quantityToAdd <= 0) return;
-
-        setCart((prevCart) => {
-            const itemInCart = prevCart.find((item) => item.id === product.id);
-            if (itemInCart) {
-                return prevCart.map((item) =>
-                    item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item
-                );
-            }
-            return [...prevCart, { ...product, quantity: quantityToAdd }];
-        });
-    };
-
-    const removeItem = (productId) => {
-        setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-    };
-
     const updateQuantity = (product, quantity) => {
         const newQuantity = Number(quantity) || 0;
         if (newQuantity <= 0) {
@@ -55,6 +36,10 @@ export const CartProvider = ({ children }) => {
             }
             return [...prevCart, { ...product, quantity: newQuantity }];
         });
+    };
+
+    const removeItem = (productId) => {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     };
 
     const isInCart = (productId) => {
@@ -81,7 +66,7 @@ export const CartProvider = ({ children }) => {
 
     // Todo lo que esté en "value" queda disponible para los consumers.
     return (
-        <CartContext.Provider value={{ cart, addToCart, updateQuantity, removeItem, isInCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
+        <CartContext.Provider value={{ cart, updateQuantity, removeItem, isInCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
             {children}
         </CartContext.Provider>
     );
