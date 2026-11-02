@@ -1,0 +1,106 @@
+.container {
+    width: min(900px, calc(100% - 32px));
+    box-sizing: border-box;
+    margin: 40px auto;
+    padding: 28px 32px;
+    border: 1px solid #eadfbe;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 12px rgba(47, 38, 19, 0.07);
+}
+
+.container h2 {
+    margin: 0 0 20px;
+    color: #2f2613;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    text-align: left;
+}
+
+.container ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border: 1px solid #eee7d5;
+    border-radius: 8px;
+    background: #fffdf7;
+    color: #3f3420;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.itemImage {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.container .itemInfo {
+    flex: 1;
+    text-align: left;
+}
+
+.itemName {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 6px;
+    color: #3f3420;
+    font-size: 1.05rem;
+}
+
+.badge {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #218739;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.container .itemDescription {
+    margin: 0 0 8px;
+    color: #6b6251;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.container .itemDetail {
+    margin: 2px 0;
+    color: #5b5549;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.container li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(47, 38, 19, 0.1);
+}
+
+@media (max-width: 560px) {
+    .container {
+        margin: 24px auto;
+        padding: 20px;
+    }
+
+    .container li {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .itemImage {
+        align-self: flex-end;
+    }
+}

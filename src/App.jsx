@@ -8,6 +8,7 @@ import DetalleProducto from './components/producto/DetalleProducto';
 import ContactoListContainer from './components/equipo/ContactoListContainer';
 import styles from './App.module.css';
 import Inicio from './components/inicio/Inicio';
+import ProductosNacionales from './components/producto/ProductosNacionales';
 
 const guaushop = '/images/logos/logo_guaushop.png';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/alta-productos" element={<FormularioContainer />} />
         <Route path="/nosotros" element={<ContactoListContainer message="Nosotros" />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
+        <Route path="/productos-nacionales" element={<ProductosNacionales />} />
         <Route path="/carrito" element={<Cart />} />
         <Route path="*" element={<h1 className={styles.notFound}>Página no encontrada</h1>} />
       </Route>
