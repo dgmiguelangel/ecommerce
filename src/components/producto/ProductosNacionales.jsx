@@ -9,11 +9,14 @@ function ProductosNacionales() {
 
     useEffect(() => {
         const fetchProductos = async () => {
-            const productosDB = collection(db, 'productos-nacionales');
-            const productosSnapshot = await getDocs(productosDB);
-            const productosList = productosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            console.log('productos-nacionales:', productosList);
-            setProductos(productosList);
+            const productosDB = collection(db, 'productos');
+            getDocs(productosDB).then(resp => {
+                setProductos(
+                    resp.docs.map(doc => ({
+                        id: doc.id, ...doc.data()
+                    }))
+                );
+            });
         };
         fetchProductos();
     }, []);
